@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace biblioteca{
+
+    class Livro{
+
+        //Propriedades
+        public string Titulo
+        public string Autor
+        public int AnoPublicacao
+        public bool FoiEmprestado
+
+        public  Livro(string Titulo, string Autor, int AnoPublicacao){
+            Titulo = titulo;
+            Autor = autor;
+            AnoPublicacao = anoPublicacao
+            FoiEmprestado = False;
+        }
+
+        public void Emprestar(){
+
+            if (FoiEmprestado == True){
+                Console.WriteLine("O livro não esta disponivel.")
+            }else{
+                FoiEmprestado==True;
+                Console.WriteLine("O livro foi emprestado com sucesso!")
+            }
+
+        }
+
+        public void Devolver(){
+
+            if (FoiEmprestado == True){
+                FoiEmprestado == False
+                Console.WriteLine("O livro foi devolvido com sucesso.")
+            }else{
+                FoiEmprestado==true;
+                Console.WriteLine("O livro foi emprestado com sucesso!")
+            }
+
+        }
+    }
+}
