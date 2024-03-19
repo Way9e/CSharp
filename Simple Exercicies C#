@@ -1,0 +1,168 @@
+using System.Runtime.Intrinsics.X86;
+using System.Runtime.Serialization;
+
+namespace Tarefa_06._02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //-------------------------------------Exercicio 1-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Diga outro numero: ");
+            int num2 = int.Parse(Console.ReadLine());
+
+            if ((num1 + num2) % 2 != 0 ) { Console.WriteLine("O numero é impar");  }
+            else { Console.WriteLine("O numero é par"); }
+
+
+            //-------------------------------------Exercico 2-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            float num3 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Diga outro numero: ");
+            float num4 = float.Parse(Console.ReadLine());
+            
+            double divisao= num3 / num4;
+            double divisaodelimitada = Math.Round(divisao, 3);
+            Console.WriteLine("O resultado da divisao dos dois numeros e " + divisaodelimitada);
+
+            //-------------------------------------Exercicio 3-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            float num5 = float.Parse(Console.ReadLine());
+
+            if (num5 > 10)
+            {
+                Console.Beep();
+                Console.WriteLine("ERRO, valor maior do que o aceitado.");
+            }
+            else 
+            { 
+                double resultado = num5 * Math.PI;
+                Console.WriteLine("O resulatdo da multiplicacao é " + resultado);
+            }
+
+
+            //-------------------------------------Exercicio 4-------------------------------------
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+            }
+
+            //-------------------------------------Exercicio 5-------------------------------------
+
+            int soma = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+                soma += i;
+            }
+            Console.WriteLine("A soma dos 10 primeiros numeros naturais e " + soma);
+
+            //-------------------------------------Exercicio 6-------------------------------------
+
+            int soma1 = 0;
+            Console.WriteLine("Diga um numero: ");
+            int num6 = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i <= num6; i++)
+            {
+                Console.WriteLine(i);
+                soma1 += i;
+            }
+            Console.WriteLine("A soma dos numeros naturais e ate " + num6 + " sao " + soma1);
+
+            //-------------------------------------Exercicio 7-------------------------------------
+
+            int soma = 0;
+            int media;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+                soma += i;
+            }
+            media = soma / 10; 
+            Console.WriteLine("A soma dos 10 primeiros numeros naturais e " + soma);
+            Console.WriteLine("A media dos 10 primeiros numeros naturais e " + media);
+
+            //-------------------------------------Exercicio 8-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            int num7 = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i <= num7; i++)
+            {
+                Console.WriteLine(Math.Pow(i, 3));
+            }
+
+            //-------------------------------------Exercicio 9-------------------------------------
+
+            void cubos(int num8)
+            {
+                for (int i = 0; i <= num8 ; i++)
+                {
+                    Console.WriteLine(Math.Pow(i, 3));
+                }
+            }
+
+            Console.WriteLine("Diga um numero: ");
+            int num8 = int.Parse(Console.ReadLine());
+
+            cubos(num8);
+
+            //-------------------------------------Exercicio 11-------------------------------------
+
+            Console.WriteLine("Diga a quantidade em reais: ");
+            float num9 = float.Parse(Console.ReadLine());
+
+            float dolares = num9 * 0.2012f;
+
+            Console.WriteLine("O valor em dolares seria " + dolares);
+
+            //-------------------------------------Exercicio 12-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            int num10 = int.Parse(Console.ReadLine());
+            int tabuada;
+
+            for (int i = 0; i <= 10; i++)
+            {
+                tabuada = i * num10;
+                Console.WriteLine(num10 + "*" +  i + "=" + tabuada);
+            }
+
+            //-------------------------------------Exercicio 13-------------------------------------
+
+            Console.WriteLine("Diga o seu peso em kg: ");
+            float peso = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Diga a sua altura em metro: ");
+            float altura = float.Parse(Console.ReadLine());
+
+            float bmi = peso / (altura * altura);
+
+            Console.WriteLine("O seu BMI e " + bmi);
+
+            //-------------------------------------Exercicio 14-------------------------------------
+
+            Console.WriteLine("Diga um numero: ");
+            int num11 = int.Parse(Console.ReadLine());
+            int fatorial= 1;
+
+            for (int i = 1 ; i<=num11  ; i++)
+            {
+                fatorial *= i;
+            }
+            Console.WriteLine("O fatorial de " + num11 + " e " + fatorial);
+        }
+    }
+}
