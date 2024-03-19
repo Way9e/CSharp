@@ -1,0 +1,110 @@
+-------------------------------------Livro.cs-------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace biblioteca
+{
+
+    class Livro
+    {
+
+        //Propriedades
+        public string Titulo;
+        public string Autor;
+        public int AnoPublicacao;
+        public bool FoiEmprestado;
+
+        public Livro(string titulo, string autor, int anoPublicacao)
+        {
+            Titulo = titulo;
+            Autor = autor;
+            AnoPublicacao = anoPublicacao;
+            FoiEmprestado = false;
+        }
+
+        public Livro(string titulo, string autor)
+        {
+            Titulo = titulo;
+            Autor = autor;
+            FoiEmprestado = false;
+            AnoPublicacao = DateTime.Now.Year;
+        }
+
+        public void Emprestar()
+        {
+
+            if (FoiEmprestado == true)
+            {
+                Console.WriteLine("O livro não esta disponivel.");
+            }
+            else
+            {
+                FoiEmprestado = true;
+                Console.WriteLine("O livro foi emprestado com sucesso!");
+            }
+
+        }
+
+        public void Devolver()
+        {
+
+            if (FoiEmprestado == true)
+            {
+                FoiEmprestado = false;
+                Console.WriteLine("O livro foi devolvido com sucesso.");
+            }
+            else
+            {
+                FoiEmprestado = true;
+                Console.WriteLine("O livro foi emprestado com sucesso!");
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"Livro: {Titulo}, Autor: {Autor}, Ano Publicação: {AnoPublicacao}"; 
+        }
+    }
+}
+
+-------------------------------------Program.cs-------------------------------------
+using System;
+
+namespace biblioteca
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Criar um Objeto "Livro" usando o construtor
+            Livro meuLivro = new Livro ("Os Maias", "Eça de Queiros", 1994);
+            Livro meuLivro2 = new Livro("Os terrores de C#", "Igor Lima", 1998);
+            Livro meuLivro3 = new Livro("Os Lusiadas", "Luis de Camões");
+
+            //Aceder a propriedades do livro
+            Console.WriteLine ("Titulo: " + meuLivro.Titulo);
+            Console.WriteLine("Autor: " + meuLivro.Autor);
+            Console.WriteLine("Ano de Publicaçâo: " + meuLivro.AnoPublicacao);
+
+            //Aceder a propriedades do livro
+            Console.WriteLine("Titulo: " + meuLivro2.Titulo);
+            Console.WriteLine("Autor: " + meuLivro2.Autor);
+            Console.WriteLine("Ano de Publicaçâo: " + meuLivro2.AnoPublicacao);
+
+            //Aceder a propriedades do livro
+            Console.WriteLine("Titulo: " + meuLivro3.Titulo);
+            Console.WriteLine("Autor: " + meuLivro3.Autor);
+            Console.WriteLine("Ano de Publicaçâo: " + meuLivro3.AnoPublicacao);
+
+            meuLivro.Emprestar();
+            meuLivro.Devolver();
+
+            Console.WriteLine(meuLivro);
+            Console.WriteLine(meuLivro2);
+            Console.WriteLine(meuLivro3);
+        }
+    }
+}
