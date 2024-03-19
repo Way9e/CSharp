@@ -1,0 +1,36 @@
+using System.ComponentModel.Design;
+
+namespace Atividade2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random num = new Random();
+            int num1 = num.Next(1, 100);
+            Console.WriteLine("O programa selecionou um numero inteiro aleatorio de 1 a 100. Tente adivinhar o numero: ");
+            int numInputInt = 0;
+
+            while (numInputInt != num1)
+            {
+                string numInput = Console.ReadLine();
+                numInputInt = int.Parse(numInput);
+
+                if (numInputInt > num1)
+                {
+                    Console.WriteLine("Tente um numero menor: ");
+
+                }
+                else if (numInputInt < num1)
+                {
+                    Console.WriteLine("Tente um numero maior: ");
+
+                }
+                else if (numInputInt == num1)
+                {
+                    Console.WriteLine("Acertou no numero. Parabens!");
+                }
+            }
+        }
+    }
+}
