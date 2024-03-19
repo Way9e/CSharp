@@ -1,0 +1,74 @@
+namespace Arrays
+{
+    internal class Program
+    {
+
+        //---------------------------Exercicio1---------------------------
+        static int EncontrarMaiorNum(int[] array)
+        {
+            int maior= array[0];
+
+            for (int i= 1; i < array.Length; i++)
+            {
+                if (array[i]> maior)
+                {
+                    maior= array[i];
+                }
+            }
+            return maior;
+        }
+
+        static void Main(string[] args)
+        {
+            int[] num= new int[10];
+
+            for (int i= 0; i <num.Length; i++)
+            {
+                Console.WriteLine("Digite um numero: ");
+                num[i]= int.Parse(Console.ReadLine());
+            }
+
+            int maiorNum = EncontrarMaiorNum(num);
+            Console.WriteLine("O maior número no array é: " + maiorNum);
+
+        //---------------------------Exercicio2---------------------------
+
+        static void Inverter(int[] array)
+        {
+            int tamanho= array.Length;
+            for (int i= 0; i< tamanho/2; i++)
+            {
+                int arrayaux= array[i];
+                array[i]= array[tamanho-i-1];
+                array[tamanho-i-1]= arrayaux;
+            }
+        }
+        static void Mostrar(int[] array)
+        {
+            for (int i= 0; i< array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            int[] array = new int[10];
+
+            for (int i= 0; i< array.Length; i++)
+            {
+                Console.WriteLine($"Digite um numero: ");
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Array original:");
+            Mostrar(array);
+
+            Inverter(array); //Inverter a ordem dos elementos do array
+
+            Console.WriteLine("Array invertido:");
+            Mostrar(array); //Exibir o array invertido
+        }
+    }
+}
