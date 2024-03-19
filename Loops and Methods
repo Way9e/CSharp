@@ -1,0 +1,83 @@
+--------------------------------------Pessoa.cs--------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Pessoa
+{
+    internal class Pessoa
+    {
+        public string Nome { get; set; }
+        public int Aniversario { get; set; }
+        public double Altura { get; set; }
+        public string BandaFvorita { get; set; }
+
+        public Pessoa(string nome, int aniversario, double altura, string bandaFavorita)
+        {
+            Nome = nome;
+            Aniversario = aniversario;
+            Altura = altura;
+            BandaFvorita = bandaFavorita;
+        }
+
+        public int CalcularIdade()
+        {
+            int anoAtual = DateTime.Now.Year;
+            return anoAtual - Aniversario;
+        }
+
+        public override string ToString()
+        {
+            return $"Nome: {Nome} | Idade: {CalcularIdade()} | Altura: {Altura:F2} | Banda Musical Favorita: {BandaFvorita}";
+        }
+    }
+}
+
+--------------------------------------Program.cs--------------------------------------
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace Pessoa
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Pessoa> listaPessoas = new List<Pessoa>();
+
+            for (int i = 0; i < 2; i++)
+            {
+                Console.WriteLine($"Insira os dados da pessoa {i + 1}:");
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Ano de Nascimento: ");
+                int anoNascimento;
+                while (!int.TryParse(Console.ReadLine(), out anoNascimento) || anoNascimento <= 0)
+                {
+                    Console.WriteLine("Ano de nascimento inválido. Insira um ano válido.");
+                }
+                Console.Write("Altura (em metros): ");
+                double altura;
+                while (!double.TryParse(Console.ReadLine(), out altura) || altura <= 0)
+                {
+                    Console.WriteLine("Altura inválida. Insira uma altura válida.");
+                }
+                Console.Write("Banda Musical Favorita: ");
+                string bandaFavorita = Console.ReadLine();
+
+                Pessoa pessoa = new Pessoa(nome, anoNascimento, altura, bandaFavorita);
+                listaPessoas.Add(pessoa);
+            }
+
+            foreach (Pessoa pessoa in listaPessoas)
+            {
+                Console.WriteLine(pessoa);
+            }
+
+            Console.WriteLine("Informações guardadas com sucesso.");
+        }
+    }
+}
