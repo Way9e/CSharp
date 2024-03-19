@@ -1,0 +1,16 @@
+namespace Atividade3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Qual é o valor do raio da esfera?");
+            string input = Console.ReadLine();
+            int r = int.Parse(input);
+            float pi = 3.14159f;
+            double exponente = Math.Pow(2, 3);
+            double vol = 4 / 3 * pi * exponente;
+            Console.WriteLine($"O volume da esfera é {vol}");
+        }
+    }
+}
