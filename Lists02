@@ -1,0 +1,92 @@
+----------------------------------Aluno.cs----------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ListaObjetos
+{
+    internal class Aluno
+    {
+        public string Nome {get; set;}
+        public int Idade {get; set;}
+        public double Nota {get; set;}
+    }
+}
+
+----------------------------------Program.cs----------------------------------
+namespace ListaObjetos
+{
+    internal class Program
+    {
+        static double MediaNotaAluno(List<Aluno> alunos)
+        {
+            double somaNotas= 0;
+            for (int i= 0; i< alunos.Count; i++)
+            {
+                somaNotas+= alunos[i].Nota;
+            }
+            return somaNotas/alunos.Count;
+        }
+
+        static void Main(string[] args)
+        {
+            List<Aluno> listaAlunos = new List<Aluno>();
+
+            //Inserir os alunos
+
+            /*listaAlunos.Add(new Aluno() {Nome = "Maria", Idade = 21, Nota = 18});
+            listaAlunos.Add(new Aluno() {Nome = "Artur", Idade = 21, Nota = 19});
+            listaAlunos.Add(new Aluno() {Nome = "Gonçalo", Idade = 20, Nota = 14});
+            listaAlunos.Add(new Aluno() {Nome = "Ana", Idade = 23, Nota = 15});
+            listaAlunos.Add(new Aluno() {Nome = "Jose", Idade = 23, Nota = 16 });
+            listaAlunos.Add(new Aluno() {Nome = "Pedro", Idade = 22, Nota = 17});*/
+
+            //Pedir ao user para inserir os alunos
+            while (true) //criar um loop infinito para que o user possa inserir quantos alunos quiser
+            {
+                Console.WriteLine("Insira o nome do aluno (EXIT para parar): ");
+                string nome = Console.ReadLine(); //Guarga o nome que foi inserido numa variavel chamada nome
+
+                if (nome.ToLower() == "exit") //Verifica se o nome inserido é igual a "exit" ------ .ToLower torna a string em minisculas
+                    break; //se o nome for igual a "exit" o ciclo é interrompido
+
+                Console.WriteLine("Insira a idade do aluno: ");
+                int idade = int.Parse(Console.ReadLine()); //Torna a string inserida num int e guarda na variavel idade
+
+                double nota;
+                do{
+                    Console.WriteLine("Inisra a nota do aluno (1 a 20): "); //Torna a string inserida num double e guarda na variavel idade
+                    nota = double.Parse(Console.ReadLine());
+                    if (nota< 1 || nota> 20)
+                    {
+                        Console.WriteLine("Valor invalido. Tente novamente.");
+                    }
+                } while (nota<= 1 || nota>= 20); //ciclo para verificar se a nota esta entre 1 e 20
+
+                //Cria um objeto Aluno com os dados fornecidos e adicionando-o à lista
+                listaAlunos.Add(new Aluno() {Nome= nome, Idade= idade, Nota= nota});
+            }
+
+            Console.WriteLine("Lista de Alunos:");
+            for (int i= 0; i< listaAlunos.Count; i++)
+            {
+                Aluno aluno = listaAlunos[i];
+                Console.WriteLine($"Nome: {aluno.Nome}, Idade: {aluno.Idade}, Nota: {aluno.Nota}");
+            }
+
+            double media = MediaNotaAluno(listaAlunos);
+            Console.WriteLine($"Média das notas dos alunos: {media:F2}");
+
+            List<Aluno> alunosNotaMais8 = listaAlunos.Where(aluno => aluno.Nota > 8.0).ToList();
+
+            Console.WriteLine("\nAlunos com notas superiores a 8.0:");
+            for (int i = 0; i < alunosNotaMais8.Count; i++)
+            {
+                Aluno aluno = alunosNotaMais8[i];
+                Console.WriteLine($"Nome: {aluno.Nome}, Nota: {aluno.Nota}");
+            }
+        }
+    }
+}
