@@ -1,0 +1,22 @@
+namespace Atividade5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ImprimirFrase();
+            ImprimirDespedida("João", 25);
+
+        }
+        static void ImprimirFrase()
+        {
+            Console.WriteLine("Batatas McDonalds");
+            Console.WriteLine("Gelado do BurgerKing");
+        }
+        static void ImprimirDespedida(string nome, int idade)
+        {
+            Console.WriteLine("Ola meu amigo " + nome + ". Obrigada por tudo");
+            Console.WriteLine("Nasceste em " + (DateTime.Now.Year - idade));
+        }
+    }
+}
